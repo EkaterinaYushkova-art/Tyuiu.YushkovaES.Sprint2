@@ -10,7 +10,7 @@ namespace Tyuiu.YushkovaES.Sprint2.Task2.V23
             Console.Title = "Спринт #2 | Выполнила: Екатерина Е.С | ИСПб-25-1";
             Console.WriteLine("**************************************************************************");
             Console.WriteLine("* Спринт #2                                                              *");
-            Console.WriteLine("* Тема: Оператор if – полная и короткая форма записи                     *");
+            Console.WriteLine("* Тема: Оператор if – полная и короткая форма записи.                    *");
             Console.WriteLine("* Задание #2                                                             *");
             Console.WriteLine("* Вариант #23                                                            *");
             Console.WriteLine("* Выполнила: Екатерина Е.С | ИСПб-25-1                                   *");

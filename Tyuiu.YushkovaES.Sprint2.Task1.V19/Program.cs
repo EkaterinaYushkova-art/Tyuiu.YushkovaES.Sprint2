@@ -10,7 +10,7 @@ namespace Tyuiu.YushkovaES.Sprint2.Task1.V19
             Console.Title = "Спринт #2 | Выполнила: Екатерина Е.С | ИСПб-25-1";
             Console.WriteLine("**************************************************************************");
             Console.WriteLine("* Спринт #2                                                              *");
-            Console.WriteLine("* Тема: Логические операции                                              *");
+            Console.WriteLine("* Тема: Логические операции.                                             *");
             Console.WriteLine("* Задание #1                                                             *");
             Console.WriteLine("* Вариант #19                                                            *");
             Console.WriteLine("* Выполнила: Екатерина Е.С | ИСПб-25-1                                   *");
