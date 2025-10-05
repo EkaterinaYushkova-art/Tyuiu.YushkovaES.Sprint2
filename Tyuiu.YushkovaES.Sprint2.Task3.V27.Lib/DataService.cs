@@ -9,7 +9,7 @@ namespace Tyuiu.YushkovaES.Sprint2.Task3.V27.Lib
             double y = 0;
 
             if ((x > 0))
-                y = x * Math.Pow(((x + 1) / (Math.Pow(Math.Sin(x), 2) + x - 0.5)), x);
+                y = x * Math.Pow(((x + 1) / ((Math.Sin(Math.Pow(x, 2))) + x - 0.5)), x);
             else if ((x == 0))
                 y = ((Math.Pow(x, 2) - Math.Pow(Math.Cos(x), 2) + 4) / (Math.Pow(x, 2) - Math.Pow(Math.Sin(x), 2) + 12));
             else if ((x < 0) && (x > -31))
