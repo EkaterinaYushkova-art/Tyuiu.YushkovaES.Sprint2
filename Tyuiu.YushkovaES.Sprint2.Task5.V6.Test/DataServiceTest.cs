@@ -11,19 +11,19 @@ namespace Tyuiu.YushkovaES.Sprint2.Task5.V6.Test
             DataService ds = new DataService();
 
             string res1 = ds.FindCardNameAndValue(1, 6);   // value1=1 (пики), value2=6
-            string wait1 = "Шестерка пик";
+            string wait1 = "шестерка пик";
             Assert.AreEqual(wait1, res1);
 
             string res2 = ds.FindCardNameAndValue(2, 11);  // value1=2 (трефы), value2=11
-            string wait2 = "Валет треф";
+            string wait2 = "валет треф";
             Assert.AreEqual(wait2, res2);
 
             string res3 = ds.FindCardNameAndValue(3, 12);  // value1=3 (бубны), value2=12
-            string wait3 = "Дама бубен";
+            string wait3 = "дама бубен";
             Assert.AreEqual(wait3, res3);
 
             string res4 = ds.FindCardNameAndValue(4, 14);  // value1=4 (червы), value2=14
-            string wait4 = "Туз черв";
+            string wait4 = "туз черв";
             Assert.AreEqual(wait4, res4);
         }
 
