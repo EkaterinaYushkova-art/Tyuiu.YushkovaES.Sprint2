@@ -4,56 +4,48 @@ namespace Tyuiu.YushkovaES.Sprint2.Task5.V6.Lib
 {
     public class DataService : ISprint2Task5V6
     {
-        public string FindCardNameAndSuit(int value, int suit)
+
+        public string FindCardNameAndValue(int value1, int value2)
         {
-            if (suit < 1 || suit > 4)
-            {
+            if (value1 < 1 || value1 > 4)
                 throw new ArgumentException("Номер масти должен быть от 1 до 4");
-            }
 
-            if (value < 6 || value > 14)
-            {
+            if (value2 < 6 || value2 > 14)
                 throw new ArgumentException("Номер достоинства должен быть от 6 до 14");
-            }
 
-            string valueName = GetValueName(value);
-            string suitName = GetSuitName(suit);
+            string suitName = GetSuitName(value1);  
+            string valueName = GetValueName(value2); 
 
             return $"{valueName} {suitName}";
         }
 
-        private string GetValueName(int value)
+        private string GetValueName(int value1)
         {
-            switch (value)
+            return value1 switch
             {
-                case 6: return "Шестерка";
-                case 7: return "Семерка";
-                case 8: return "Восьмерка";
-                case 9: return "Девятка";
-                case 10: return "Десятка";
-                case 11: return "Валет";
-                case 12: return "Дама";
-                case 13: return "Король";
-                case 14: return "Туз";
-                default: throw new ArgumentException("Неизвестное достоинство карты");
-            }
+                6 => "Шестерка",
+                7 => "Семерка",
+                8 => "Восьмерка",
+                9 => "Девятка",
+                10 => "Десятка",
+                11 => "Валет",
+                12 => "Дама",
+                13 => "Король",
+                14 => "Туз",
+                _ => throw new ArgumentException("Неизвестное достоинство карты")
+            };
         }
 
-        private string GetSuitName(int suit)
+        private string GetSuitName(int value2)
         {
-            switch (suit)
+            return value2 switch
             {
-                case 1: return "пик";
-                case 2: return "треф";
-                case 3: return "бубен";
-                case 4: return "черв";
-                default: throw new ArgumentException("Неизвестная масть");
-            }
-        }
-
-        public string FindCardNameAndValue(int value1, int value2)
-        {
-            throw new NotImplementedException();
+                1 => "пик",
+                2 => "треф",
+                3 => "бубен",
+                4 => "черв",
+                _ => throw new ArgumentException("Неизвестная масть")
+            };
         }
     }
 }

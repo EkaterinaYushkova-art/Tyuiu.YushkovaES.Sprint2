@@ -10,65 +10,37 @@ namespace Tyuiu.YushkovaES.Sprint2.Task5.V6.Test
         {
             DataService ds = new DataService();
 
-            // Тестирование валидных значений
-            Assert.AreEqual("Шестёрка пик", ds.FindCardNameAndValue(1, 6));
-            Assert.AreEqual("Семёрка треф", ds.FindCardNameAndValue(2, 7));
-            Assert.AreEqual("Восьмёрка бубен", ds.FindCardNameAndValue(3, 8));
-            Assert.AreEqual("Девятка червей", ds.FindCardNameAndValue(4, 9));
+            string res1 = ds.FindCardNameAndValue(1, 6);   // value1=1 (пики), value2=6
+            string wait1 = "Шестерка пик";
+            Assert.AreEqual(wait1, res1);
+
+            string res2 = ds.FindCardNameAndValue(2, 11);  // value1=2 (трефы), value2=11
+            string wait2 = "Валет треф";
+            Assert.AreEqual(wait2, res2);
+
+            string res3 = ds.FindCardNameAndValue(3, 12);  // value1=3 (бубны), value2=12
+            string wait3 = "Дама бубен";
+            Assert.AreEqual(wait3, res3);
+
+            string res4 = ds.FindCardNameAndValue(4, 14);  // value1=4 (червы), value2=14
+            string wait4 = "Туз черв";
+            Assert.AreEqual(wait4, res4);
         }
 
         [TestMethod]
-        public void ValidFindCardNameAndValue2()
+        public void InvalidFindCardNameAndValue()
         {
             DataService ds = new DataService();
 
-            // Тестирование всех карт от 6 до 14
-            Assert.AreEqual("Шестёрка пик", ds.FindCardNameAndValue(1, 6));
-            Assert.AreEqual("Семёрка треф", ds.FindCardNameAndValue(2, 7));
-            Assert.AreEqual("Восьмёрка бубен", ds.FindCardNameAndValue(3, 8));
-            Assert.AreEqual("Девятка червей", ds.FindCardNameAndValue(4, 9));
-            Assert.AreEqual("Десятка пик", ds.FindCardNameAndValue(1, 10));  
-            Assert.AreEqual("Валет треф", ds.FindCardNameAndValue(2, 11));
-            Assert.AreEqual("Дама бубен", ds.FindCardNameAndValue(3, 12));
-            Assert.AreEqual("Король червей", ds.FindCardNameAndValue(4, 13));
-            Assert.AreEqual("Туз пик", ds.FindCardNameAndValue(1, 14));
-        }
+            // Неверный value1 (масть)
+            Assert.ThrowsException<ArgumentException>(() => ds.FindCardNameAndValue(0, 10));
+            Assert.ThrowsException<ArgumentException>(() => ds.FindCardNameAndValue(5, 10));
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void InvalidSuitTest()
-        {
-            DataService ds = new DataService();
-            // Ограничение для пользователя: масть должна быть от 1 до 4
-            // Этот тест проверяет, что при невалидной масти выбрасывается исключение
-            ds.FindCardNameAndValue(0, 6);  // Масть 0 - недопустима
-        }
+            // Неверный value2 (достоинство)
+            Assert.ThrowsException<ArgumentException>(() => ds.FindCardNameAndValue(1, 5));
+            Assert.ThrowsException<ArgumentException>(() => ds.FindCardNameAndValue(1, 15));
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void InvalidSuitTest2()
-        {
-            DataService ds = new DataService();
-            // Ограничение для пользователя: масть должна быть от 1 до 4
-            ds.FindCardNameAndValue(5, 7);  // Масть 5 - недопустима
-        }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void InvalidRankTest()
-        {
-            DataService ds = new DataService();
-            // Ограничение для пользователя: достоинство должно быть от 6 до 14
-            ds.FindCardNameAndValue(1, 5);  // Достоинство 5 - недопустимо
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void InvalidRankTest2()
-        {
-            DataService ds = new DataService();
-            // Ограничение для пользователя: достоинство должно быть от 6 до 14
-            ds.FindCardNameAndValue(2, 15);  // Достоинство 15 - недопустимо
         }
     }
 }

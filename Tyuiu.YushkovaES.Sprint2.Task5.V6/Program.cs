@@ -42,6 +42,7 @@ namespace Tyuiu.YushkovaES.Sprint2.Task5.V6
             Console.WriteLine("**************************************************************************");
             string result = ds.FindCardNameAndValue(m, k);
             Console.WriteLine($"* Название карты: {result,-55} *");
+            Console.ReadKey();
 
 
 
